@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- This page works entirely offline in your browser: it cannot send anything anywhere. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; base-uri 'none'; form-action 'none'">
+<title>Bulwark partner approver</title>
+<style>
+  :root { color-scheme: dark; --bg:#070a12; --card:#111726; --line:rgba(255,255,255,.1); --text:#e6e9f2; --dim:#94a3b8; --acc:#2dd4bf; --acc2:#6366f1; --bad:#fb7185; --warn:#fbbf24; --good:#34d399; }
+  @media (prefers-color-scheme: light) { :root { color-scheme: light; --bg:#f4f6fb; --card:#fff; --line:rgba(15,23,42,.14); --text:#0f172a; --dim:#475569; --acc:#0d9488; --acc2:#4f46e5; --bad:#be123c; --warn:#b45309; --good:#047857; } }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; }
+  main { max-width: 720px; margin: 0 auto; padding: 24px 16px 64px; }
+  h1 { font-size: 24px; margin: 8px 0 4px; }
+  h2 { font-size: 16px; margin: 0 0 6px; text-transform: uppercase; letter-spacing: .06em; color: var(--dim); font-weight: 600; }
+  .sub { color: var(--dim); margin: 0 0 20px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 20px; margin-bottom: 16px; }
+  .mono { font-family: ui-monospace, Menlo, Consolas, monospace; }
+  .key { word-break: break-all; font-size: 13px; padding: 10px 12px; border-radius: 10px; border: 1px solid var(--line); background: rgba(127,127,127,.08); }
+  textarea { width: 100%; min-height: 96px; border-radius: 12px; border: 1px solid var(--line); background: rgba(127,127,127,.08); color: var(--text); padding: 10px 12px; font: 13px ui-monospace, Menlo, Consolas, monospace; resize: vertical; }
+  pre.statement { white-space: pre-wrap; word-break: break-word; border: 2px solid var(--acc); border-radius: 12px; padding: 14px; margin: 12px 0; font: 14px/1.55 ui-monospace, Menlo, Consolas, monospace; background: rgba(45,212,191,.06); }
+  button { font: inherit; border-radius: 12px; border: 1px solid var(--line); background: transparent; color: var(--text); padding: 9px 16px; cursor: pointer; }
+  button:hover:not(:disabled) { background: rgba(127,127,127,.12); }
+  button:disabled { opacity: .45; cursor: not-allowed; }
+  button.primary { border: 0; font-weight: 600; color: #04101a; background: linear-gradient(135deg, var(--acc), var(--acc2)); }
+  .row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 10px; }
+  .note { color: var(--dim); font-size: 14px; }
+  .bad { color: var(--bad); } .warn { color: var(--warn); } .good { color: var(--good); }
+  label.check { display: flex; gap: 10px; align-items: flex-start; margin: 8px 0; cursor: pointer; }
+  label.check input { margin-top: 5px; width: 18px; height: 18px; }
+  .hidden { display: none; }
+  .out { word-break: break-all; font-size: 13px; padding: 12px; border-radius: 10px; border: 1px solid var(--good); background: rgba(52,211,153,.08); }
+  ol { padding-left: 20px; margin: 8px 0 0; } li { margin: 4px 0; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Bulwark partner approver</h1>
+  <p id="fromlink" class="card warn hidden"><b>You opened a request.</b> <span id="fromlinktext"></span></p>
+  <p class="sub">You are someone's accountability partner. Their machine asks <b>you</b> to approve loosening its protection. This page runs only in your browser and sends nothing anywhere.</p>
+
+  <div id="unsupported" class="card hidden"><b class="bad">This browser cannot create the kind of key Bulwark needs.</b> Use a current version of Chrome, Edge, Firefox or Safari.</div>
+
+  <section class="card" id="keycard">
+    <h2>1. Your key</h2>
+    <div id="nokey" class="hidden">
+      <p>You don't have a key on this device yet. Create one: the private half is stored only in this browser and can never be exported or read back, even by this page.</p>
+      <div class="row"><button class="primary" id="create">Create my key</button><span id="createerr" class="bad"></span></div>
+      <p class="note">Tip: ask for <b>two</b> keys, one on this device and one on a spare, so you can still approve if one is lost.</p>
+    </div>
+    <div id="haskey" class="hidden">
+      <p>Give this <b>public key</b> to the person you are partnering with, to enter during setup. It is safe to share: it can only <i>check</i> your approvals, never make one.</p>
+      <div class="key mono" id="pub"></div>
+      <div class="row"><button id="copypub">Copy public key</button><button id="sharepub" class="hidden">Send it…</button><span class="note">Key id: <span class="mono" id="kid"></span></span><span id="copied1" class="good hidden">Copied</span></div>
+      <p class="note">Keep using this same browser profile to approve. If you clear this site's data the key is gone and you will need a spare key.</p>
+    </div>
+  </section>
+
+  <section class="card" id="approvecard">
+    <h2>2. Approve a request</h2>
+    <ol class="note"><li>Paste the <b>request code</b> they gave you.</li><li>Read exactly what it says.</li><li>Only approve if you really agree. Then send the <b>approval code</b> back.</li></ol>
+    <textarea id="req" spellcheck="false" placeholder="Paste the request code here" aria-label="Request code"></textarea>
+    <div class="row"><button id="read">Read this request</button><span id="readerr" class="bad"></span></div>
+
+    <div id="review" class="hidden">
+      <p><b>This is exactly what will be signed:</b></p>
+      <pre class="statement" id="statement" tabindex="0"></pre>
+      <p id="warn" class="warn hidden"></p>
+      <label class="check"><input type="checkbox" id="agree"><span>I have read the changes above and I approve them. I understand the other person asked for this.</span></label>
+      <div class="row"><button class="primary" id="approve" disabled>Approve</button><button id="decline">Decline</button></div>
+    </div>
+
+    <div id="result" class="hidden">
+      <p class="good"><b>Approved.</b> Send this <b>approval code</b> back to them:</p>
+      <div class="out mono" id="code" role="status"></div>
+      <div class="row"><button class="primary" id="sharecode" class="hidden">Send it back…</button><button id="copycode">Copy approval code</button><span id="copied2" class="good hidden">Copied</span></div>
+      <p class="note">It works once, only for this change, and only on that machine. Declining is free: just don't send anything.</p>
+    </div>
+  </section>
+</main>
+
+<script>
+"use strict";
+const $ = (id) => document.getElementById(id);
+const enc = new TextEncoder(), dec = new TextDecoder("utf-8", { fatal: true });
+
+// ---- small helpers -----------------------------------------------------------------------------------------------
+const toHex = (buf) => [...new Uint8Array(buf)].map((b) => b.toString(16).padStart(2, "0")).join("");
+function b64urlDecode(s) {
+  s = s.trim().replace(/-/g, "+").replace(/_/g, "/"); while (s.length % 4) s += "=";
+  return Uint8Array.from(atob(s), (c) => c.charCodeAt(0));
+}
+function b64urlEncode(bytes) {
+  let s = ""; bytes.forEach((b) => (s += String.fromCharCode(b)));
+  return btoa(s).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+}
+async function keyId(pubHex) {
+  const raw = Uint8Array.from(pubHex.match(/../g).map((h) => parseInt(h, 16)));
+  const h = toHex(await crypto.subtle.digest("SHA-256", raw));
+  return `${h.slice(0, 4)}-${h.slice(4, 8)}`; // same short id the Bulwark machine shows for this key
+}
+async function copy(text, flag) {
+  try { await navigator.clipboard.writeText(text); } catch { const t = document.createElement("textarea"); t.value = text; document.body.appendChild(t); t.select(); document.execCommand("copy"); t.remove(); }
+  flag.classList.remove("hidden"); setTimeout(() => flag.classList.add("hidden"), 1800);
+}
+
+// ---- key storage: the private key is a non-extractable CryptoKey kept in IndexedDB -----------------------------
+const DB = "bulwark-approver", STORE = "keys";
+const db = () => new Promise((res, rej) => { const r = indexedDB.open(DB, 1); r.onupgradeneeded = () => r.result.createObjectStore(STORE); r.onsuccess = () => res(r.result); r.onerror = () => rej(r.error); });
+async function idb(mode, fn) { const d = await db(); return new Promise((res, rej) => { const t = d.transaction(STORE, mode); const out = fn(t.objectStore(STORE)); t.oncomplete = () => res(out.result); t.onerror = () => rej(t.error); }); }
+const loadKey = () => idb("readonly", (s) => s.get("main"));
+const saveKey = (rec) => idb("readwrite", (s) => s.put(rec, "main"));
+
+let current = null; // { privateKey, publicHex }
+
+async function showKey() {
+  const rec = await loadKey();
+  $("nokey").classList.toggle("hidden", !!rec); $("haskey").classList.toggle("hidden", !rec);
+  if (rec) { current = rec; $("pub").textContent = rec.publicHex; $("kid").textContent = await keyId(rec.publicHex); }
+}
+
+$("create").onclick = async () => {
+  try {
+    const pair = await crypto.subtle.generateKey({ name: "Ed25519" }, false, ["sign", "verify"]); // private key: not extractable
+    const publicHex = toHex(await crypto.subtle.exportKey("raw", pair.publicKey));
+    await saveKey({ privateKey: pair.privateKey, publicHex, created: Date.now() });
+    // Ask the browser not to evict this key. Not awaited: some browsers show a permission prompt, and creating the
+    // key must never wait on an answer to it.
+    try { navigator.storage?.persist?.().catch(() => {}); } catch {}
+    await showKey();
+  } catch (e) {
+    $("createerr").textContent = "Could not create a key here: " + (e && e.message ? e.message : e);
+  }
+};
+$("copypub").onclick = () => copy(current.publicHex, $("copied1"));
+const canShare = typeof navigator.share === "function";
+if (canShare) { $("sharepub").classList.remove("hidden"); }
+$("sharepub").onclick = () => navigator.share({ title: "My Bulwark partner key", text: "My public key for Bulwark (safe to share, it can only check my approvals):\n" + current.publicHex }).catch(() => {});
+
+// ---- reading and approving a request ---------------------------------------------------------------------------
+let request = null;
+function parseRequest(code) {
+  let obj; try { obj = JSON.parse(dec.decode(b64urlDecode(code))); } catch { throw new Error("That is not a valid request code."); }
+  if (obj.v !== 1 || typeof obj.statement !== "string" || typeof obj.nonce !== "string") throw new Error("That request code is not supported by this page.");
+  if (!obj.statement.startsWith("BULWARK APPROVAL v1\n")) throw new Error("This does not look like a Bulwark approval request. Do not approve it.");
+  if (!/^[0-9a-f]{32}$/.test(obj.nonce)) throw new Error("The request id is malformed.");
+  // The request id inside the text you will sign must be the one the code claims, or the code was tampered with.
+  if (!obj.statement.includes(`\nRequest id: ${obj.nonce}\n`)) throw new Error("The request does not match its id. Do not approve it.");
+  return obj;
+}
+
+$("read").onclick = () => {
+  $("readerr").textContent = ""; $("result").classList.add("hidden"); $("review").classList.add("hidden"); request = null;
+  try {
+    if (!current) throw new Error("Create your key first (step 1).");
+    request = parseRequest($("req").value);
+  } catch (e) { $("readerr").textContent = e.message; return; }
+  $("statement").textContent = request.statement;
+  const w = $("warn");
+  if (/^Action: Weaken protection/m.test(request.statement)) { w.textContent = "This request would START loosening protection. Approve only if you genuinely agree it should be loosened."; w.classList.remove("hidden"); }
+  else { w.classList.add("hidden"); }
+  $("agree").checked = false; $("approve").disabled = true; $("review").classList.remove("hidden");
+  $("statement").focus();
+};
+$("agree").onchange = () => ($("approve").disabled = !$("agree").checked);
+$("decline").onclick = () => { $("review").classList.add("hidden"); $("req").value = ""; request = null; };
+
+$("approve").onclick = async () => {
+  if (!request || !current || !$("agree").checked) return;
+  // Sign exactly the text shown above, nothing else.
+  const sig = await crypto.subtle.sign({ name: "Ed25519" }, current.privateKey, enc.encode(request.statement));
+  const out = { v: 1, nonce: request.nonce, key: current.publicHex, signature: toHex(sig) };
+  $("code").textContent = b64urlEncode(enc.encode(JSON.stringify(out)));
+  $("review").classList.add("hidden"); $("result").classList.remove("hidden"); request = null;
+};
+$("copycode").onclick = () => copy($("code").textContent, $("copied2"));
+if (!canShare) $("sharecode").classList.add("hidden");
+$("sharecode").onclick = () => navigator.share({ title: "Bulwark approval", text: "Bulwark approval code:\n" + $("code").textContent }).catch(() => {});
+
+// ---- a request that arrives as a link: https://.../#r=<request code> --------------------------------------------
+// The part after # is never sent to any server: it stays in this browser.
+function requestFromLink() {
+  const m = /^#r=([A-Za-z0-9_-]+)$/.exec(location.hash);
+  return m ? m[1] : null;
+}
+function openFromLink() {
+  const code = requestFromLink();
+  if (!code) return;
+  $("req").value = code;
+  $("fromlink").classList.remove("hidden");
+  $("approvecard").scrollIntoView();
+  if (current) { $("fromlinktext").textContent = "Read exactly what it says below. Approve only if you really agree."; $("read").click(); }
+  else $("fromlinktext").textContent = "First create your key (step 1). Then this request opens by itself.";
+}
+const _showKey = showKey;
+showKey = async function () { await _showKey(); if (current && requestFromLink() && !$("fromlink").classList.contains("hidden") && !request) { $("fromlinktext").textContent = "Read exactly what it says below. Approve only if you really agree."; $("read").click(); } };
+
+// ---- start ------------------------------------------------------------------------------------------------------
+(async () => {
+  try {
+    if (!crypto?.subtle || !indexedDB) throw new Error("no webcrypto");
+    await crypto.subtle.generateKey({ name: "Ed25519" }, false, ["sign", "verify"]); // feature check
+    await showKey();
+    openFromLink();
+  } catch (e) { $("unsupported").classList.remove("hidden"); $("keycard").classList.add("hidden"); $("approvecard").classList.add("hidden"); }
+})();
+</script>
+</body>
+</html>
