@@ -1,8 +1,8 @@
 {
-  "version": "0.5.1",
-  "versionCode": 6,
-  "sha256": "d3fe91319106af0770957208fc217d9b7a946fd48cf268848a52f0095372451f",
+  "version": "0.5.2",
+  "versionCode": 7,
+  "sha256": "18a532aec7b92abe424f0750b8a18bc01800eb255c9bb961db05397a8d0e6c8f",
   "url": "https://mel254.github.io/bulwark-approver/bulwark.apk",
-  "notes": "WhatsApp Status guard: close it or allow a few minutes a day (Protect, Inside apps). Best effort; tell us if it does not notice the Status screen.",
+  "notes": "WhatsApp Status time counter on Today, and close any app or every browser",
   "page": "https://mel254.github.io/bulwark-approver/"
 }
