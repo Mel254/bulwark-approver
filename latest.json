@@ -1,8 +1,8 @@
 {
-  "version": "0.5.4",
-  "versionCode": 9,
-  "sha256": "c05243cba4f3d16250472ef1e3cac3fe06147189e1c902869099d7983dd5e055",
+  "version": "0.5.5",
+  "versionCode": 10,
+  "sha256": "00ab3c5ce9e26e902f42a234e572ffdc2d7dc4fb2aee2d9ddaa19dfba42d598b",
   "url": "https://mel254.github.io/bulwark-approver/bulwark.apk",
-  "notes": "Fixes Wi-Fi-only apps like Google Photos backup; grey apps, bedtime, pickup counter, days clean ring",
+  "notes": "Fixes a wrong 'nothing guards the uninstall screens' notice; the guard is now recognised on every phone",
   "page": "https://mel254.github.io/bulwark-approver/"
 }
