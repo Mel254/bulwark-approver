@@ -1,8 +1,8 @@
 {
-  "version": "0.5.0",
-  "versionCode": 5,
-  "sha256": "8c4842409f8193e3316234740d04a32413e71afad5e0077520b46643306189e5",
+  "version": "0.5.1",
+  "versionCode": 6,
+  "sha256": "d3fe91319106af0770957208fc217d9b7a946fd48cf268848a52f0095372451f",
   "url": "https://mel254.github.io/bulwark-approver/bulwark.apk",
-  "notes": "Calming focus sounds, which app is the problem, notification detox, night grayscale, updates in the app, and partner mode.",
+  "notes": "WhatsApp Status guard: close it or allow a few minutes a day (Protect, Inside apps). Best effort; tell us if it does not notice the Status screen.",
   "page": "https://mel254.github.io/bulwark-approver/"
 }
