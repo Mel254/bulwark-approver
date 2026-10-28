@@ -1,8 +1,8 @@
 {
-  "version": "0.5.3",
-  "versionCode": 8,
-  "sha256": "e7f079e06c10d1354ddfe9493ec80e861bd41d54637932f0fde1c3ef67225278",
+  "version": "0.5.4",
+  "versionCode": 9,
+  "sha256": "c05243cba4f3d16250472ef1e3cac3fe06147189e1c902869099d7983dd5e055",
   "url": "https://mel254.github.io/bulwark-approver/bulwark.apk",
-  "notes": "Days clean in Insights, WhatsApp Status counter always shown, close apps and browsers",
+  "notes": "Fixes Wi-Fi-only apps like Google Photos backup; grey apps, bedtime, pickup counter, days clean ring",
   "page": "https://mel254.github.io/bulwark-approver/"
 }
