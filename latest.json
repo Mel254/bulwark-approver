@@ -1,8 +1,8 @@
 {
-  "version": "0.5.2",
-  "versionCode": 7,
-  "sha256": "18a532aec7b92abe424f0750b8a18bc01800eb255c9bb961db05397a8d0e6c8f",
+  "version": "0.5.3",
+  "versionCode": 8,
+  "sha256": "e7f079e06c10d1354ddfe9493ec80e861bd41d54637932f0fde1c3ef67225278",
   "url": "https://mel254.github.io/bulwark-approver/bulwark.apk",
-  "notes": "WhatsApp Status time counter on Today, and close any app or every browser",
+  "notes": "Days clean in Insights, WhatsApp Status counter always shown, close apps and browsers",
   "page": "https://mel254.github.io/bulwark-approver/"
 }
