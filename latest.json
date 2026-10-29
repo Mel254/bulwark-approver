@@ -1,8 +1,8 @@
 {
-  "version": "0.6.0",
-  "versionCode": 12,
-  "sha256": "5e59458af864d25da2d0e455121103a471bf303974f6923bb785946cacf9455f",
+  "version": "0.6.1",
+  "versionCode": 13,
+  "sha256": "0d9de9190b1d67ce5638f26dd72354324551da49cd097defc4e986276fc4e73c",
   "url": "https://mel254.github.io/bulwark-approver/bulwark.apk",
-  "notes": "Listening mode and Internet by app: keep chosen apps online and everything else offline, no partner needed",
+  "notes": "Fixes apps not loading after ending Listening mode early; casting and home-network names always work; music players suggested",
   "page": "https://mel254.github.io/bulwark-approver/"
 }
