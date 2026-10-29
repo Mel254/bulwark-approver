@@ -1,8 +1,8 @@
 {
-  "version": "0.5.5",
-  "versionCode": 10,
-  "sha256": "00ab3c5ce9e26e902f42a234e572ffdc2d7dc4fb2aee2d9ddaa19dfba42d598b",
+  "version": "0.5.6",
+  "versionCode": 11,
+  "sha256": "e43a23b4e2dc936468c932e28c364641c00a32c128ee0aa7e17f83a7c4cc7f82",
   "url": "https://mel254.github.io/bulwark-approver/bulwark.apk",
-  "notes": "Fixes a wrong 'nothing guards the uninstall screens' notice; the guard is now recognised on every phone",
+  "notes": "Shorts and Reels guards, bedtime pass, pickup nudge, night check-in, days-clean backup, fuller health check",
   "page": "https://mel254.github.io/bulwark-approver/"
 }
