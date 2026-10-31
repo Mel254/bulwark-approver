@@ -1,8 +1,8 @@
 {
-  "version": "0.6.1",
-  "versionCode": 13,
-  "sha256": "0d9de9190b1d67ce5638f26dd72354324551da49cd097defc4e986276fc4e73c",
+  "version": "0.6.2",
+  "versionCode": 14,
+  "sha256": "21c34e5c5e99bb0c59eeae049af6ea1a68d51171fb99b8e00b86a57d904b9e12",
   "url": "https://mel254.github.io/bulwark-approver/bulwark.apk",
-  "notes": "Fixes apps not loading after ending Listening mode early; casting and home-network names always work; music players suggested",
+  "notes": "Listening mode quick-settings tile; YouTube Restricted Mode is its own setting and starts off on a fresh install",
   "page": "https://mel254.github.io/bulwark-approver/"
 }
