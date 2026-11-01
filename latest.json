@@ -1,8 +1,8 @@
 {
-  "version": "0.6.2",
-  "versionCode": 14,
-  "sha256": "21c34e5c5e99bb0c59eeae049af6ea1a68d51171fb99b8e00b86a57d904b9e12",
+  "version": "0.6.3",
+  "versionCode": 15,
+  "sha256": "7514e53583ee223e08b5766d8d6ff264f051be227f82e45fc76e12683459a0fc",
   "url": "https://mel254.github.io/bulwark-approver/bulwark.apk",
-  "notes": "Listening mode quick-settings tile; YouTube Restricted Mode is its own setting and starts off on a fresh install",
+  "notes": "Block YouTube and the other social sites all day or at set times, or give them a daily allowance in minutes; YouTube Restricted Mode starts off on a fresh install",
   "page": "https://mel254.github.io/bulwark-approver/"
 }
