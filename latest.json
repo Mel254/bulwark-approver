@@ -1,8 +1,8 @@
 {
-  "version": "0.6.3",
-  "versionCode": 15,
-  "sha256": "7514e53583ee223e08b5766d8d6ff264f051be227f82e45fc76e12683459a0fc",
+  "version": "0.7.0",
+  "versionCode": 16,
+  "sha256": "bbf7adbaeb36c47b777d058807b65504a152fb994ccf2ab45e945ae0aab8f642",
   "url": "https://mel254.github.io/bulwark-approver/bulwark.apk",
-  "notes": "Block YouTube and the other social sites all day or at set times, or give them a daily allowance in minutes; YouTube Restricted Mode starts off on a fresh install",
+  "notes": "A Streak tab of its own: ranks you keep after a slip, seven title packs (Jedi path, Pilgrim, Dojo belts and more), and a celebration at every new rank",
   "page": "https://mel254.github.io/bulwark-approver/"
 }
