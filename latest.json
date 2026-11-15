@@ -1,8 +1,8 @@
 {
-  "version": "0.8.0",
-  "versionCode": 18,
-  "sha256": "8c2e225f05e1f4adfcd2ed7ff7e8a8796dbc9315974127339f0b810ef5cc2f07",
+  "version": "0.9.0",
+  "versionCode": 19,
+  "sha256": "8a2171077af9e66b7ff8504b84638c055b5df19f255fffc14c2d5a5a2f0ba0a4",
   "url": "https://mel254.github.io/bulwark-approver/bulwark.apk",
-  "notes": "Your devices (sync), shared allowances and bedtime, an I'm-tempted button with a urge log, and a new app icon that follows your colours.",
+  "notes": "Bulwark can be your home screen: a clean clock with 0 to 5 apps, a swipe-up drawer, wallpapers, and phone-free hours that hide everything but your night apps.",
   "page": "https://mel254.github.io/bulwark-approver/"
 }
