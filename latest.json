@@ -1,8 +1,8 @@
 {
-  "version": "0.7.0",
-  "versionCode": 16,
-  "sha256": "bbf7adbaeb36c47b777d058807b65504a152fb994ccf2ab45e945ae0aab8f642",
+  "version": "0.7.1",
+  "versionCode": 17,
+  "sha256": "14e6d585d5f8352f0f50207c0ea195d66c44b32247785e0986294d9fb1f30ad6",
   "url": "https://mel254.github.io/bulwark-approver/bulwark.apk",
-  "notes": "A Streak tab of its own: ranks you keep after a slip, seven title packs (Jedi path, Pilgrim, Dojo belts and more), and a celebration at every new rank",
+  "notes": "3D characters on the Streak page, calm colour themes (Midnight blue by default), YouTube open-only hours with daily minutes, and a scroll alarm",
   "page": "https://mel254.github.io/bulwark-approver/"
 }
