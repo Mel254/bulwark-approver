@@ -1,8 +1,8 @@
 {
-  "version": "0.7.1",
-  "versionCode": 17,
-  "sha256": "14e6d585d5f8352f0f50207c0ea195d66c44b32247785e0986294d9fb1f30ad6",
+  "version": "0.8.0",
+  "versionCode": 18,
+  "sha256": "8c2e225f05e1f4adfcd2ed7ff7e8a8796dbc9315974127339f0b810ef5cc2f07",
   "url": "https://mel254.github.io/bulwark-approver/bulwark.apk",
-  "notes": "3D characters on the Streak page, calm colour themes (Midnight blue by default), YouTube open-only hours with daily minutes, and a scroll alarm",
+  "notes": "Your devices (sync), shared allowances and bedtime, an I'm-tempted button with a urge log, and a new app icon that follows your colours.",
   "page": "https://mel254.github.io/bulwark-approver/"
 }
