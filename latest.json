@@ -1,8 +1,8 @@
 {
-  "version": "0.10.1",
-  "versionCode": 21,
-  "sha256": "3606bdb4af10dad7738de6f9130f61a54216a811d0831b874d8d126f0f3c70c5",
+  "version": "0.11.0",
+  "versionCode": 22,
+  "sha256": "02907d33bcd00433661b2c47e504cceb5a9548e600866c38d7d6708428e48508",
   "url": "https://mel254.github.io/bulwark-approver/bulwark.apk",
-  "notes": "At night, the apps you use most sit under the clock and the rest are one swipe up, in a list that only holds the apps you allowed. Pick them in Settings, Home screen, At night.",
+  "notes": "Bulwark can open your web links (your rules first, then the app, then a plain viewer), touch and hold an app for quick options, new icon styles.",
   "page": "https://mel254.github.io/bulwark-approver/"
 }
