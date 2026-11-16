@@ -1,8 +1,8 @@
 {
-  "version": "0.10.0",
-  "versionCode": 20,
-  "sha256": "002db3b2629615e14016dc8158d8e294f640e891a8cbe633a2b8b05cee7e294c",
+  "version": "0.10.1",
+  "versionCode": 21,
+  "sha256": "3606bdb4af10dad7738de6f9130f61a54216a811d0831b874d8d126f0f3c70c5",
   "url": "https://mel254.github.io/bulwark-approver/bulwark.apk",
-  "notes": "Choose your night apps once, with no partner needed. New clock faces, wallpapers and your own photos, a lock screen that matches, a calmer look, and a home screen that fits small phones and large text.",
+  "notes": "At night, the apps you use most sit under the clock and the rest are one swipe up, in a list that only holds the apps you allowed. Pick them in Settings, Home screen, At night.",
   "page": "https://mel254.github.io/bulwark-approver/"
 }
