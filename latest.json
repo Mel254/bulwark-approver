@@ -1,8 +1,8 @@
 {
-  "version": "0.9.0",
-  "versionCode": 19,
-  "sha256": "8a2171077af9e66b7ff8504b84638c055b5df19f255fffc14c2d5a5a2f0ba0a4",
+  "version": "0.10.0",
+  "versionCode": 20,
+  "sha256": "002db3b2629615e14016dc8158d8e294f640e891a8cbe633a2b8b05cee7e294c",
   "url": "https://mel254.github.io/bulwark-approver/bulwark.apk",
-  "notes": "Bulwark can be your home screen: a clean clock with 0 to 5 apps, a swipe-up drawer, wallpapers, and phone-free hours that hide everything but your night apps.",
+  "notes": "Choose your night apps once, with no partner needed. New clock faces, wallpapers and your own photos, a lock screen that matches, a calmer look, and a home screen that fits small phones and large text.",
   "page": "https://mel254.github.io/bulwark-approver/"
 }
