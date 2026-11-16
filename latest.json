@@ -1,8 +1,8 @@
 {
-  "version": "0.12.0",
-  "versionCode": 23,
-  "sha256": "75083d442787fadd009df9a82c424b813e7177ac4c0759df320ae03ea26341b7",
+  "version": "0.12.1",
+  "versionCode": 24,
+  "sha256": "328a3c4d2d28176348fdb4d48fc0f62909ccf6578039dde7c65712f6b94c82d1",
   "url": "https://mel254.github.io/bulwark-approver/bulwark.apk",
-  "notes": "A tidier Protect tab and Settings (six topics), uninstall in the quick menu now works, and the home screen pickup count is correct.",
+  "notes": "Fixes the night apps list: every app you allowed at bedtime now shows, four to a row, and the list no longer lets the home screen show through.",
   "page": "https://mel254.github.io/bulwark-approver/"
 }
