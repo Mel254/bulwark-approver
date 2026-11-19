@@ -1,8 +1,8 @@
 {
-  "version": "0.12.1",
-  "versionCode": 24,
-  "sha256": "328a3c4d2d28176348fdb4d48fc0f62909ccf6578039dde7c65712f6b94c82d1",
+  "version": "0.12.2",
+  "versionCode": 25,
+  "sha256": "481b9225c58f7a10b2a4a13a5f45967ec684054f26129654ad14f1bb8d63a51a",
   "url": "https://mel254.github.io/bulwark-approver/bulwark.apk",
-  "notes": "Fixes the night apps list: every app you allowed at bedtime now shows, four to a row, and the list no longer lets the home screen show through.",
+  "notes": "A better link viewer: addresses without https:// open, http moves to https, redirects are checked again, new-tab links work, and a page that cannot load says so.",
   "page": "https://mel254.github.io/bulwark-approver/"
 }
